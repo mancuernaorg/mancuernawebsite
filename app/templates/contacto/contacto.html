@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="main">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image:  url('{% static "img/noticias.png"%}')">
+  </div>
+  <div class="section landing-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                          <h2 class="text-center">Formulario De Contacto</h2>
+                          <form class="contact-form">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Nombre</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="nc-icon nc-single-02"></i>
+                                    </span>
+                                  </div>
+                                  <input type="text" class="form-control" placeholder="Nombre">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label>Email</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                    </span>
+                                  </div>
+                                  <input type="text" class="form-control" placeholder="ejemplo@mancuerna.org">
+                                </div>
+                              </div>
+                            </div>
+                            <label>Mensaje</label>
+                            <textarea class="form-control" rows="4" placeholder="Escribenos"></textarea>
+                            <div class="row">
+                              <div class="col-md-4 ml-auto mr-auto">
+                                <button type="button" class="btn btn-danger btn-round">Enviar Mensaje</button>
+                              </div>
+                            </div>
+                          </form>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <div class="title">
+              <h3>Sede</h3>
+            </div>
+            <div class="info">
+              <div class="description">
+                <ul style="list-style:none;">
+                  <li><a class="text-primary"  href=""> <i class="fa fa-location-arrow"></i> 9na. Calle A, lote No. 24 Zona 3, San Marcos, Guatemala</a></li></br>
+                  <li class="nav-item"><a class="text-primary"  href=""> <i class="fa fa-phone-square"></i> +502 77604116</a></li></br>
+                  <li class="nav-item"><a class="text-primary"  href=""> <i class="fa fa-envelope"></i> mail@mancuerna.org</a></li></br>
+                  <li class="nav-item"><a class="text-primary"  href=""> <i class="fa fa-clock-o"></i> Lun – Vie: 8:00 – 18:00</a></li></br>
+                </ul>   
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="title">
+              <h3>Direccion</h3>
+            </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.459932848775!2d-91.79893038516973!3d14.967152589569869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858e80fcb46897f5%3A0xf599fd27152bf302!2sMANCUERNA!5e0!3m2!1ses-419!2sgt!4v1639060136521!5m2!1ses-419!2sgt" width="700" height="165" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+     </div>
+
+</div>
+
+{% endblock content %}
+

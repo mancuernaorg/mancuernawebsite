@@ -1,0 +1,73 @@
+{% load static %}
+<nav class="navbar navbar-expand-md fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+      <div class="navbar-translate">
+        
+        <a class="navbar-brand" rel="tooltip"  href="{% url 'index' %}" data-placement="bottom"><img src="{% static 'img/logo.png' %}" style="width: 40px;"/> MANCUERNA</a>
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+    
+  
+
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#" role="button" aria-haspopup="true" aria-expanded="false">Actualidad</a>
+            <ul class="dropdown-menu dropdown-warning" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'noticias' %}">Noticias</a>
+              <a class="dropdown-item" href="{% url 'bolsaempleo' %}">Bolsa de empleo</a>
+            </ul>
+          </div>
+     <!-- 
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sobre Nosotros</a>
+            <ul class="dropdown-menu dropdown-warning" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href=" ">Junta Directiva</a>
+         
+              <a class="dropdown-item" href="">Municipios Socios</a>
+              <a class="dropdown-item" href="">Nuestra Historia</a> 
+              <a class="dropdown-item" href="">Equipo de trabajo</a>
+          
+            </ul>
+          </div>
+    -->
+          <!---Enlaces Externos -->
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false">Secciones</a>
+            <ul class="dropdown-menu dropdown-warning" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'proyectos' %}">Proyectos</a>
+              <a class="dropdown-item" href="{% url 'informacion-publica' %}">Acceso a la información publica</a>
+            </ul>
+       
+          </div>
+            <!---Enlaces Externos -->
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#" role="button" aria-haspopup="true" aria-expanded="false">Enlaces</a>
+              <ul class="dropdown-menu dropdown-warning" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" target="_blank" href="https://sgc.mancuerna.org/">SGC</a> 
+              </ul>
+            </div>
+      <!---HEP+ -->
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a href="{% url 'base-conocimiento' %}" class="nav-link">Base de conocimiento</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'logout' %}" class="nav-link" ><i class="fa fa-sign-out"></i>Salir</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a href="{% url 'admin:index' %}" target="_blank" class="nav-link" ><i class="fa fa-user"></i>Acceder</a>
+            </li>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+

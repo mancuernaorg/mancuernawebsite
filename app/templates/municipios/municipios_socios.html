@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="main">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image:  url('{% static "img/blubac.jpeg"%}')">
+    <div class="filter"></div>
+        <div class="container">
+            <div class="motto text-center">
+            </br>
+            <h2>Municipios Socios</h2> 
+            </div>
+        </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div class="name">
+    <h4 class="title text-center">Municipios Socios
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 ml-auto mr-auto">
+    <p>Look a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </p>
+  </div>
+</div>
+<br/>
+</div>
+<!---Reciclamos el componente de socios aqui-->
+{% include 'componentes/componente_socios.html' %}
+{% endblock content %}

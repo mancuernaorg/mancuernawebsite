@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="main">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image:  url('{% static "img/blubac.jpeg"%}')">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+        </br>
+          <h2>Bolsa de empleo</h2>
+        
+        </div>
+      </div>
+      
+  </div>
+  <div class="section profile-content">
+
+    <div class="container">
+      <div class="owner">
+        <br />      
+        <br />
+        <div class="name">
+          <h6>Bolsa de empleo</h6>
+        </div>
+      </div>
+      
+      <br/>
+      <strong class="d-block h6 my-2 pb-2 border-bottom">Documentos Disponibles</strong>
+      <br>
+      <!--- esta funcion de busqueda falta integrarla
+      <div class="col-lg-12">
+        <div>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Buscar">
+            <button class="btn btn-succ btn-sm btn-outline" type="submit">Buscar</button>
+          </form>
+        </div>
+        <br>
+      </div>
+    -->
+      <div class="col-lg-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Publicacion</th>   
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for  bolsadeempleo in bolsadeempleo %}
+        
+          <tr>
+            <td class="nav-item">
+              <strong style="font-size: 15px;" target="_blank">{{ bolsadeempleo.titulo }}</strong>           
+        </td>
+            <td>{{ bolsadeempleo.fecha_publicacion|date:"M d, Y" }}</td>
+            <td>
+              <div class="row"> 
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-warning btn-just-icon btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Ver detalle" target="_blank" ><a href="{% url 'bolsa-detalle' bolsadeempleo.pk %}" style="color: #ffffff;"><i class="fa fa-eye"></i></a></button>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-success btn-just-icon btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Descargar" ><a href="{{ bolsadeempleo.cargar_archivo.url }}" style="color: #ffffff;"><i class="fa fa-download"></i></a></button>
+              </div>
+            </div>
+            </td>
+          </tr>
+
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+      <br>
+      <br>
+    <!--Pagination-->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if bolsadeempleo.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ bolsadeempleo.previous_page_number }}">Anterior</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+          </li>
+        {% endif %}
+        {% for i in bolsadeempleo.paginator.page_range %}
+          {% if bolsadeempleo.number == i %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if bolsadeempleo.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ bolsadeempleo.next_page_number }}">Siguiente</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Siguiente</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <!--end of Pagination-->
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

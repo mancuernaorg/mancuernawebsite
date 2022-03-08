@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="main">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image:  url('{% static "img/blubac.jpeg"%}')">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+        </br>
+          <h2>Noticias</h2>
+        
+        </div>
+      </div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <br />      
+        <br />
+        <div class="name">
+          <h6></h6>
+        </div>
+      </div>
+      <div class="section">
+        <div class="container">
+          
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="card-title" style="color: #7a7a7a; font-weight: bold; font-size: 23px; fon">{{ noticia.titulo_noticia }}</h3>
+                <p class="text-right"><strong>Fecha publicacion: </strong>{{ noticia.fecha_publicacion|date:"M d, Y" }}</p>
+                <p class="text-right" ><strong>Categoria: </strong>{{ noticia.get_categoria_display|default_if_none:''  }}</p>
+                <img class="card-img-top" src="{{ noticia.imagen_principal.url }}"  alt="Card image cap">
+                <br>
+                <br>
+                <p class="card-text text-justify" style="color: #000000; font-weight: regular; font-size: 20px; ">{{ noticia.descripcion }}</p>
+                <br>
+                <a href="javascript: history.go(-1)"class="btn btn-outline-default btn-round pull-right"><i class="fa fa-chevron-left"></i> Regresar</a>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
